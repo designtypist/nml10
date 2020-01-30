@@ -1,0 +1,835 @@
+/* 
+	Table of Content:
+		1. Main Styling
+		2. Navigation menu 
+		3. Home 
+		4. Event Overview
+		5. Event Details
+		6. Tournament Section
+			a. Tournament Navigation
+			b. Tournament Games
+			c. Tournament Schedule
+			d. Tournament Rules
+		7. Contacts
+		8. Responsive Styles
+
+
+	Colour Scheme:
+		#CC1100 - Red
+		#424242 - Grey
+		#FBF7E4 - Beige
+		#D3CEAA - Tan
+		#E7E8D1 - Very light Green
+		
+		Reference:
+			https://color.adobe.com/Red-and-smooth-color-theme-19069/edit/?copy=true&base=0&rule=Custom&selected=0&name=Copy%20of%20Red%20and%20smooth&mode=rgb&rgbvalues=0.905882,0.909804,0.819608,0.827451,0.807843,0.666667,0.984314,0.968627,0.894118,0.258824,0.258824,0.258824,0.556863,0,0.109804&swatchOrder=0,1,2,3,4
+	
+	Colour Scheme 2
+	https://color.adobe.com/Cherry-Bomb-color-theme-1197172/edit/?copy=true
+*/
+
+/* Temporary hiding elements till resolved */
+
+.regNowButton { display: none; }
+.regButtonTop { display: none; }
+
+
+/*--- Main Styling
+---------------------------------------------------------------*/	
+
+.homeBackground {
+	background: url("../img/csgoBackground.jpg") top center  no-repeat;
+	background-color: grey;
+	z-index: -100;
+}
+
+.foreground {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+}
+
+.center {
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+
+.container {
+	margin: 0 10px;
+	z-index: 5;
+}
+	.container .header {
+		margin: 15px 0;
+		text-align: center;
+	}
+
+.centerImage {
+	display: table-cell;
+    vertical-align:middle;
+}
+
+/* Styling for registration now button - event overview, event details */
+	.regNowButton {
+		background-color: #CC1100;
+		width: 30%;
+		margin: 0 auto;
+	}
+		.regNowButton a, .regNowButton a:link, .regNowButton a:visited {
+			background-color: #CC1100;
+			display: block;
+			color: #fff;
+			padding: 25px 0;
+			text-decoration: none;
+			text-align: center;
+		}
+		.regNowButton a:hover, .regNowButton a:active {
+			background-color: red;
+			color: #fff;
+		}
+
+/*--- Navigation menu 
+---------------------------------------------------------------*/
+
+	/*-- Main style for 'navbar'
+	----------------------------------------------*/
+	
+	.navbar {
+		background-color: #333333;
+		height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 100;
+	}
+		/*Unhide menu links*/
+		.showingNav {
+			display: block;
+			visibility: visible;
+		}
+		.hidingNav {
+			display: none;
+			visibility: hidden;
+		}
+		
+		.navbar ul {
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+		}
+		.navbar li {
+			display: inline-block;
+		}
+		
+		/*Style for main logo*/
+
+			#mainLogo img {
+				background-color: #fff;
+				clear: both;
+				display: inline-block;
+				float: left;
+				height: 40px;
+				width: 40px;
+				padding: 5px 25px;
+			}
+		
+	
+	/*-- Style for 'navbarLeft' 
+	----------------------------------------------*/
+	
+		/*Reveal navigation menu*/
+		#navMenu {
+			display: block;
+		}
+		
+		/*Style for menu lists*/
+		.navbarLeft li {
+			float: left;
+		}
+		
+		/*Style for menu links*/
+		.navbarLeft li a {
+			display: block;
+			min-width: 120px;
+			height: 50px;
+			text-align: center;
+			line-height: 50px;
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			color: #fff;
+			background: #2f3036;
+			text-decoration: none;
+		}
+		
+		/*Hover state for top level links*/
+		.navbarLeft li:hover a {
+			background: #CC1100;
+		}
+		
+		/*Style for dropdown links*/
+		.navbarLeft li:hover ul a {
+			background: #f3f3f3;
+			color: #2f3036;
+			height: 40px;
+			line-height: 40px;
+		}
+
+		/*Hover state for dropdown links*/
+		.navbarLeft li:hover ul a:hover {
+			background: #CC1100;
+			color: #fff;
+		}
+		
+		/*Hide dropdown links until they are needed*/
+		.navbarLeft li ul {
+			display: none;
+		}
+
+		/*Make dropdown links vertical*/
+		.navbarLeft li ul li {
+			display: block;
+			float: none;
+		}
+
+		/*Prevent text wrapping*/
+		.navbarLeft li ul li a {
+			width: auto;
+			min-width: 120px;
+			padding: 0 20px;
+		}
+
+		/*Display the dropdown on hover*/
+		.navbarLeft ul li a:hover + .hidden, .hidden:hover {
+			display: block;
+		}
+	
+		/*-- Show menu button for mobile
+		--------------------------------------------------------------*/
+			
+			/*Style 'show menu' label button and hide it*/
+			.showMenu {
+				background: #CC1100;
+				color: #fff;
+				display: inline-block;
+				float: left;
+				font-size: 16px;
+				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+				height: 20px;
+				text-align: center;
+				text-decoration: none;
+				padding: 15px 20px;
+			}
+			
+			
+			/* Icon for 'show menu' button*/
+			.icon-menu {
+				display: inline-block;
+				height: 16px;
+				margin-right: 10px;
+				width: 20px;
+			}
+			.icon-menu i {
+				background-color: #fff;
+				margin-bottom: 3px;
+				display: block;
+				height: 4px;
+			}
+			
+			/*Hide checkbox*/
+			input[type=checkbox]{
+				display: none;
+			}
+			
+			/*Show menu when invisible checkbox is checked*/
+			input[type=checkbox]:checked ~ #navMenu {
+				display: block;
+			}
+	
+	/*-- Style for 'navbarRight' 
+	----------------------------------------------*/
+		
+	/* Register now button */
+	.regButtonTop a {
+		background-color: #CC1100;
+		float: right;
+		margin: 5px 10px;
+		max-height: 40px;
+		min-width: 150px;
+		padding: 10px 20px;
+		text-align: center;
+	}
+		.regButtonTop a {
+			text-decoration: none;
+		}
+		
+		/* Style for register button when idle */
+		.regButtonTop a:link, .regButtonTop a:visited {
+			color: #fff;
+		}
+		
+		/* Style for register button when active */
+		.regButtonTop a:active, .regButtonTop a:hover {
+			color: #fff;
+			background-color: red;
+		}
+	
+	
+/*--- Home 
+---------------------------------------------------------------*/
+
+.home {
+	background-color: #000;
+	color: #fff;
+	font-family: Arial, Sans Serif;
+	margin: 0 auto;
+	position: absolute;
+	top: 40%;
+	left: 0;
+	right: 0;
+	text-align: center;
+	width: 60%;
+}
+	.home h1 {
+		font-size: 300%;
+		padding: 0;
+	}	
+	.home h2 {
+		font-size: 200%;
+		padding: 0;
+	}
+
+	
+	
+	/* Move footer to bottom of section */
+	.scrollNote {
+		color: #fff;
+		background-color: #000;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		text-align: center;
+		margin: 0 auto;
+		z-index: 10;
+	}
+		.scrollNote p {
+			margin: 5px 0;
+		}
+		.scrollNote img {
+			height: 10px;
+			margin: 5px auto;
+		}
+
+/*--- Event Overview
+---------------------------------------------------------------*/
+	
+	.eventOverview h2 {
+		margin: 15px 0;
+	}
+	.eventOverview p {
+		font-size: 120%;
+		margin: 0 auto;
+		width: 90%;
+	}
+
+	.eventPastPic {
+		margin: 10px auto;
+	}
+		.eventPastPic  img {
+			min-width: 25px;
+			max-width: 250px;
+			margin: 0 10px;
+		}
+		.eventPastPic a {
+			width: 100%;
+			height: 100%;
+		}
+		
+		
+		
+/*--- Event Details
+---------------------------------------------------------------*/			
+	
+	/* Styling for event details container */
+	.eventDetails {
+		margin: 10px auto;
+		width: 100%;
+	}
+		.eventDetails h2 {
+			margin: 15px 0;
+		}
+		.eventDetails p {
+			font-size: 120%;
+			margin: 15px auto;
+			width: 80%;
+		}
+	
+	/* Styling for main event details */
+	.eventDetaInner {
+		background-color: #DDD;
+		color: #000;
+		padding: 10px;
+		text-align: center;
+	}
+		.eventDetaInner h2, .eventDetaInner h3 , .eventDetaInner h4{
+			margin: 0;
+			padding: 0;
+		}
+		.eventDetaInner img {
+			display: inline-block;
+			margin: 10px 0;
+			width: 12%;
+		}
+		
+		
+	/* Styling for event sponsors */
+	.eventSponsor {
+		background-color: #DDD;
+		color: #000;
+		margin: 10px 0;
+	}
+	
+	.eventSponsorInner {
+		margin: 5px;
+		text-align:center;
+		width: 100%;
+	}
+		.eventSponsorInner h3 {
+			padding: 0;
+			margin: 5px auto;
+		}
+		.eventSponsorInner ul {
+			list-style:none;
+			padding: 0;
+			margin: 0
+		}
+		.eventSponsorInner li {
+			display: inline;
+			padding: 0;
+		}
+		.eventSponsorInner img {
+			display: inline;
+			height: 45px;
+		}
+		.eventSponsorInner a {
+			display: inline-block;
+		}
+			
+/* --- Tournament Section
+----------------------------------------------------------------*/	
+	
+		/* --- Tournament Rules
+	----------------------------------------------------------------*/	
+
+		/* Position tournament rules list */
+		
+		.tourRulesList {
+			background-color: #DDD;
+			margin: 0 auto;
+			padding: 10px 15px;
+			width: 90%;
+		} 
+			.tourRulesList h3 {
+				font-size: 130%;
+				margin: 10px 0;
+				padding: 0;
+				text-align: center;
+			}
+			.tourRulesList li {
+				font-size: 120%;
+			}
+
+	/* --- Tournament Games
+	----------------------------------------------------------------*/	
+	
+		/* --- Styling the tournament games collapse panel */
+
+			.tourTable  {
+				background-color: #DDD;
+				display: block;
+				margin: 0 auto;
+				padding: 10px;
+				width: 90%;
+			}
+				.tourTable  p {
+					font-size: 120%;
+					padding: 0;
+					margin: 10px 0;
+				}
+				
+			.tourTableInner {
+				padding: 10px;
+			}
+			
+			/* Styles the border, adjust width and centre the collapse panel */
+			.tourTable .panel-group {
+				margin: 0 auto;
+			}
+			.tourTable .panel-default {
+				border-color: #000;
+			}
+		
+			/* Adds a banner background for the panels */
+			#lolTourGame > .panel-heading {
+				background: url("../img/banners/lolBanner.jpg") no-repeat center;
+			}
+			#csgoTourGame > .panel-heading {
+				background: url("../img/banners/csgoBanner.jpg") no-repeat center;
+			}
+			#dota2TourGame > .panel-heading {
+				background: url("../img/banners/dota2Banner.jpg") no-repeat center;
+			}
+			#minecraftTourGame > .panel-heading {
+				background: url("../img/banners/minecraftBanner.jpg") no-repeat center;
+			}
+			#smashTourGame > .panel-heading {
+				background: url("../img/banners/smashBanner.jpg") no-repeat center;
+			}
+			
+			
+			/* Style the title heading of the collapse panel */
+			.tourTable .panel-title {
+				background-color: #555;
+				color: #fff;
+				font-size: 18px;
+			}
+				.tourTable .panel-title a {
+					display: block;
+					padding: 10px 0px;
+					margin: 0;
+					text-decoration: none;
+					width: inherit; 
+					/* Fix - http://stackoverflow.com/questions/19236717/how-to-make-a-bootstrap-accordion-collapse-when-clicking-the-header-div */  
+				}
+				.tourTable .panel-heading {
+					padding: 0;
+				}
+
+			/* Style the outer content body of the collapse panel */
+			.tourTable .panel-body {
+				padding: 5px 15px;
+				background-color: #DDD;
+			}
+			.tourTable .panel-default > .panel-heading + .panel-collapse > .panel-body {
+				border-top-color: #333;
+			}
+
+		/* --- Styling the tournament games info (inner content body) */
+			
+			.tourTable article {
+				float: left;
+				text-align: left;
+				width: 50%;
+			}
+				
+				.tourTable article h3 {
+					margin: 5px 0;
+				}
+				.tourTable article ul {
+					margin: 5px 0 10px 0;
+				}
+			
+			.tourTable footer {
+				clear: both;
+				margin: 10px 0 5px 0;
+			}
+				.tourTable footer a {
+					background-color: black;
+					color: white;
+					padding: 5px 25px;
+					text-decoration: none;
+				} 
+	
+	
+	/* --- Tournament Schedule
+	----------------------------------------------------------------*/	
+
+	.scheduleTable {
+		background-color: #DDD;
+		font-family: Arial, san-serif;
+		height: 90%;
+		margin: 0 auto;
+		padding: 10px;
+		width: 90%;
+	}
+
+		.scheduleTable header div {
+			color: #fff;
+			background-color: #333;
+			font-weight: bold;
+			padding: 10px 0;
+			margin: 0;
+		}
+		.scheduleTable h4 {
+			padding: 0; 
+			margin: 0;
+		}
+		.scheduleTable p {
+			font-size: 120%;
+			text-align: center;
+			margin: 10px 0;
+		}
+		
+		
+		
+		
+	/* Styling the tournament schedule table */
+	.scheduleTable .gameInfo div { 
+		margin: 0;
+	}
+		.gameInfo {
+			border-bottom: solid 1px;
+		}
+		.gameInfo div {
+			padding: 15px 0;
+		}
+		.gameInfo h4 {
+			color: #fff;	
+			margin: 0;
+			text-align: center;
+			text-shadow: 2px 2px #000;
+		}
+		.gameInfo p {
+			font-size: 100%;
+			margin: 0;
+			font-weight: 600; 
+		}
+
+	#league {
+		background-image: url("../img/banners/lolBanner2.jpg");
+	}
+
+	#dota2 {
+		background-image: url("../img/banners/dota2Banner2.jpg");
+	}
+
+	#csgo {
+		background-image: url("../img/banners/csgoBanner2.jpg");
+	}
+
+	#minecraft {
+		background-image: url("../img/banners/minecraftBanner2.jpg");
+
+	}
+	#supersmash {
+		background-image: url("../img/banners/smashBanner2.jpg");
+		background-position: center;
+		background-size: 400px;
+		background-repeat: none;
+	}
+	
+/* --- Contacts
+----------------------------------------------------------------*/			
+
+	/* --- Styling contact info */
+	
+	.contactsInfo p {
+		font-size: 120%;
+		margin: 10px 0;
+	}
+
+	/* Contact icons */ 
+	.contactsInfo a {
+		text-decoration: none;
+	}
+	.contactsInfo img {
+		height: 40px;
+		padding: 0;
+		margin: 0 1%;
+	}
+	
+	/* --- Styling the FAQ */
+	
+	.faq {
+		background-color: #DDD;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 90%;
+	}
+		.faq h4 {
+			font-size: 120%;
+			margin: 10px 0;
+		}
+
+		/* Borders for the FAQ collapse panel */
+		.faqInner {
+			padding: 10px;
+		}
+
+		/* FAQ collapse panel */
+		
+		.faq .panel-group {
+			margin: 0;
+		}
+		.faq .panel-default {
+			border-color: #333;
+		}
+		.faq .panel-default > .panel-heading {
+			background-color: #555;
+			border-color: #333;
+		}
+		.faq .panel-heading {
+			padding: 0;
+		}
+		.faq .panel-title {
+			color: #fff;
+		}	
+			.faq .panel-title a {
+				display: block;
+                text-decoration: none;
+                width: inherit;
+                padding: 10px 0px;
+			}
+		.faq .panel-body {
+			background-color: #DDD;
+			padding: 15px;
+		}
+		.faq .panel-default > .panel-heading + .panel-collapse > .panel-body {
+			border-top-color: #333;
+		}
+	
+	
+	/* Stying the footer for author of website */
+	.contactsAuthor	{
+		background-color: #333;
+		color: #fff;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		text-align: center;
+	}
+		.contactsAuthor p {
+			margin: 3px 0;
+			padding: 0;
+		}
+		.contactsAuthor a {
+			color: #fff;
+		}
+
+		
+
+		
+/*--- Responsive Styles
+---------------------------------------------------------------*/
+
+@media screen and (max-width : 760px){
+	/*-- Navigation menu 
+	----------------------------------------------*/
+		
+		/* Hide registion button on main nav on tablets and mobile */
+		.regButtonTop {
+			display: none;
+		}
+		
+		/*Make dropdown links appear inline*/
+		.navbarLeft ul {
+			position: static;
+			display: none;
+		}
+		
+		/*Create vertical spacing*/
+		.navbarLeft li {
+			margin-bottom: 0px;
+		}
+		
+		/*Make all menu links full width*/
+		.navbarLeft ul li, .navbarLeft li a {
+			width: 100%;
+		}
+		
+		/*Hide main logo*/
+		#mainLogo {
+			display: none;
+		}
+		
+		/*Hide dropdown menu links*/
+		.navbarLeft li ul li {
+			display: none;
+		}
+		
+		/* Make 'show menu' button expand the full width of the browser*/
+		.showMenu {
+			width: 100%;
+		}
+		
+		.eventMainDeta {
+			display: block;
+		}	
+	
+	/*-- Responsive styles for sections
+	----------------------------------------------*/
+	
+	.eventDetails p {
+		width: 95%;
+	}	
+	
+	/*Hide navigation menu*/
+	#navMenu {
+		display: none;
+	}	
+		
+}
+
+@media screen and (max-width : 480px){
+	
+	/* Restyling home for mobile */
+	.home {
+		width: 90%;
+	}
+		.home h1 {
+			font-size: 180%;
+		}	
+		.home h2 {
+			font-size: 120%;
+		}
+		.home h3 {
+			font-size: 80%;
+		}
+	
+	/* Restyling the event details by placing a background color behind the event details */		
+	.eventDeta {
+		background-color: #AAA;
+		margin: 10px 0;
+		padding: 10px;
+	}
+	.eventSponsor {
+		background-color: #AAA;
+	}
+	
+	
+	
+	/* Restyling event details, tournament rules list, tournament games, tournament schedule container for mobile */
+	.eventDetails section {
+		width: 95%;
+	}
+	.tourRulesList {
+		width: 95%;
+	}
+	.tourTable {
+		width: 95%;
+	}
+	.scheduleTable {
+		width: 95%;
+	}
+	
+	/* Stying the footer for author of website */
+	.contactsAuthor	{
+		background-color: #333;
+		color: #fff;
+		margin-top: 10px;
+		padding: 10px;
+		position: relative;
+		bottom: 0;
+		text-align: center;
+	}
+
+}
+
+
+
+	
